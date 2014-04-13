@@ -1462,6 +1462,7 @@ static void ffs_data_reset(struct ffs_data *ffs)
 static int functionfs_bind(struct ffs_data *ffs, struct usb_composite_dev *cdev)
 {
 	struct usb_gadget_strings **lang;
+	int first_id;
 
 	ENTER();
 
@@ -1491,7 +1492,11 @@ static int functionfs_bind(struct ffs_data *ffs, struct usb_composite_dev *cdev)
 	if (lang) {
 		for (; *lang; ++lang) {
 			struct usb_string *str = (*lang)->strings;
+<<<<<<< HEAD
 			int id = ffs->first_id;
+=======
+			int id = first_id;
+>>>>>>> b5fe9e8... Shamu: Update Linux 3.10.43 ~> 3.10.63
 			for (; str->s; ++id, ++str)
 				str->id = id;
 		}

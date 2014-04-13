@@ -82,7 +82,7 @@ ENTRY(cpu_v7_set_pte_ext)
 
 	eor	ip, rh, #1 << (55 - 32)	@ toggle L_PTE_DIRTY in temp reg to
 					@ test for !L_PTE_DIRTY || L_PTE_RDONLY
-	tst	ip, #1 << (55 - 32) | 1 << (58 - 32)
+	tst	rh, #1 << (55 - 32) | 1 << (58 - 32)
 	orrne	rl, #PTE_AP2
 	biceq	rl, #PTE_AP2
 
